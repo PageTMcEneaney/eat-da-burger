@@ -1,17 +1,17 @@
 <div>
 
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid shadow-lg border border-secondary">
         <div class="container">
-            <h1 class="display-4">Eat Da Burger</h1>
+            <h1 class="display-4 font-weight-bold text-warning">Welcome to Bob's Burgers.</h1>
             <p class="lead">Add a new burger, eat an existing one, or re-order!</p>
         </div>
     </div>
     <div class="container">
-        <div class="row bg-light p-3 mb-3">
+        <div class="row bg-light p-3 m-1 rounded border border-secondary shadow">
             <div class="col-12">
                 <form>
                     <div class="form-group">
-                        <label for="newBurger">Submit a New Burger</label>
+                        <label for="newBurger" class="font-weight-bold">Submit a New Burger</label>
                         <input type="text" class="form-control" id="newBurger" aria-describedby="burgerHelp"
                             placeholder="Hit Me With Your Best Shallot">
                     </div>
@@ -21,10 +21,10 @@
         </div>
         <div class="row">
             <div class="col-6">
-                <h3 class="text-light">Available Burgers</h3>
+                <h3 class="text-light" style="text-shadow: 1px 1px 5px black">Available Burgers</h3>
                 {{#each burgers}}
                 {{#unless devoured}}
-                <div class="card border-secondary my-1 p-2" style="width: 16rem; display: inline-block">
+                <div class="card border-secondary my-1 p-2 shadow" style="width: 16rem; display: inline-block">
                     <h5 class="card-title">
                         {{id}}) {{name}}</h5>
                     {{!-- <img src="{{image}}" class="card-img-top" alt="{{name}}"> --}}
@@ -40,7 +40,7 @@
                 {{/each}}
             </div>
             <div class="row-6">
-                <h3 class="text-danger">Burgers Eaten</h3>
+                <h3 class="text-light" style="text-shadow: 1px 1px 5px black">Burgers Eaten</h3>
                 {{#each burgers}}
                 {{#if devoured}}
                 <div class="card border-secondary my-1 p-2" style="width: 16rem; display: inline-block">
@@ -52,10 +52,22 @@
                     </div>
                 </div>
 
-                {{!-- {{> burgers/burger-block devoured=true}} --}}
                 {{/if}}
                 {{/each}}
             </div>
         </div>
+
+        <!-- footer -->
+    <div class="p-0 footer border border-secondary bg-light rounded mt-3 shadow">
+        <div class="row text-center mx-0">
+            <div class="col-12">
+                <p class="float-left m-3"><a class="text-danger" href="https://ptmceneaney.github.io/updated-portfolio/"
+                        target="_blank">Learn about the creator of this app!</a></p>
+                <p class='float-right m-3'>© 2019 Copyright</p>
+            </div>
+        </div>
     </div>
+    </div> <!--container end-->
+
+    
 </div>
