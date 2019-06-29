@@ -1,0 +1,61 @@
+<div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Eat Da Burger</h1>
+            <p class="lead">Add a new burger, eat an existing one, or re-order!</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row bg-light p-3 mb-3">
+            <div class="col-12">
+                <form>
+                    <div class="form-group">
+                        <label for="newBurger">Submit a New Burger</label>
+                        <input type="text" class="form-control" id="newBurger" aria-describedby="burgerHelp"
+                            placeholder="Hit Me With Your Best Shallot">
+                    </div>
+                    <button type="submit" class="btn btn-dark" id="burgerSubmit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h3 class="text-light">Available Burgers</h3>
+                {{#each burgers}}
+                {{#unless devoured}}
+                <div class="card border-secondary my-1 p-2" style="width: 16rem; display: inline-block">
+                    <h5 class="card-title">
+                        {{id}}) {{name}}</h5>
+                    {{!-- <img src="{{image}}" class="card-img-top" alt="{{name}}"> --}}
+                    <div class="card-body">
+                        <button class="btn btn-dark btn-block devour" id="id{{id}}" type="submit" value="{{id}}">Devour</button>
+                        <button class="btn btn-light btn-block delete text-danger" id="id{{id}}" type="submit" value="{{id}}">Delete Order</button>
+
+                    </div>
+                </div>
+
+                {{!-- {{> burgers/burger-block devoured=true}} --}}
+                {{/unless}}
+                {{/each}}
+            </div>
+            <div class="row-6">
+                <h3 class="text-danger">Burgers Eaten</h3>
+                {{#each burgers}}
+                {{#if devoured}}
+                <div class="card border-secondary my-1 p-2" style="width: 16rem; display: inline-block">
+                    <h5 class="card-title">
+                        {{id}}) {{name}}</h5>
+                    {{!-- <img src="{{image}}" class="card-img-top" alt="{{name}}"> --}}
+                    <div class="card-body">
+                        <button class="btn btn-dark btn-block reorder" id="id{{id}}" type="submit" value="{{id}}">Order Again!</button>
+                    </div>
+                </div>
+
+                {{!-- {{> burgers/burger-block devoured=true}} --}}
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
