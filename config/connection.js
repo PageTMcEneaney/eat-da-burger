@@ -1,11 +1,13 @@
 // Set up MySQL connection.
-var JAWSDB_URL = require("./.env")
+// var JAWSDB_URL = require("./.env")
 var mysql = require("mysql");
+require("dotenv").config();
 
+var env = process.env.JAWSDB_URL
 var connection;
 
-if (process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
+if (env) {
+  connection = mysql.createConnection(env);
 } else {
   connection = mysql.createConnection({
     host: "localhost",
